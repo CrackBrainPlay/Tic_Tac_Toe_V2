@@ -8,7 +8,7 @@ namespace Tic_Tac_Toe_V2
 {
     internal class WinCheck
     {
-        public bool IsWinCheck(char[,] ValuesInPlayingField, char PlayerSymbol)
+        public static bool IsWinCheck(char[,] ValuesInPlayingField, char PlayerSymbol)
         {
                 int CounterVictory;
                 for (int i = 0; i < ValuesInPlayingField.GetLength(0); i++)
