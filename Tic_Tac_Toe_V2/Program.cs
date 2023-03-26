@@ -15,7 +15,7 @@
             PrintField.Print(Field.PlayingField);
             do
             {
-                Console.WriteLine($"\nХодит {Player1.PlayerSymbol}");
+                Console.WriteLine($"\nХодит {Player1}");
                 do
                 {
                     Player1.InputCoordinate(Field.FieldSize);

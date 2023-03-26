@@ -11,7 +11,7 @@ namespace Tic_Tac_Toe_V2
         public static void Print(char Symbol)
         {
             Console.WriteLine("Game over!");
-            Console.WriteLine($"Победил {Symbol} игрок!!!!");
+            Console.WriteLine($"\nПобедил {Symbol} игрок!!!!");
         }
     }
 }
