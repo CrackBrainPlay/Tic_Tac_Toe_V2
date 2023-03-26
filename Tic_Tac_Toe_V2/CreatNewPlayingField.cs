@@ -8,8 +8,8 @@ namespace Tic_Tac_Toe_V2
 {
     internal class CreatNewPlayingField
     {
-        private int FieldSize;
-        private char[,] ValuesInPlayingField;
+        public int FieldSize;
+        public char[,] ValuesInPlayingField;
         public int NewPlayingField()
         {
             do
