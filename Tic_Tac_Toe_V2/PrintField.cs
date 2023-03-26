@@ -8,7 +8,7 @@ namespace Tic_Tac_Toe_V2
 {
     public class PrintField
     {
-        public static void RenderField(char[,] ValuesInPlayingField)
+        public static void Print(char[,] ValuesInPlayingField)
         {
             Console.Clear();
             Console.Write("  ");

@@ -8,7 +8,7 @@ namespace Tic_Tac_Toe_V2
 {
     public class CheckIsCellFree
     {
-        public bool IsCheckCellFree(char[,] ValuesInPlayingField, int VerticalCoordinate, int HorizontalСoordinate)
+        public static bool IsCheckCellFree(char[,] ValuesInPlayingField, int VerticalCoordinate, int HorizontalСoordinate)
         {
             if (ValuesInPlayingField[VerticalCoordinate - 1, HorizontalСoordinate - 1] == '\0')
             {

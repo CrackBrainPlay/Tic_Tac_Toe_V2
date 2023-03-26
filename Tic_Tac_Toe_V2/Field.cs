@@ -9,6 +9,6 @@ namespace Tic_Tac_Toe_V2
     public class Field
     {
         public int FieldSize;
-        public char[,] ValuesInPlayingField;
+        public char[,] PlayingField;
     }
 }

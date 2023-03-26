@@ -11,7 +11,7 @@ namespace Tic_Tac_Toe_V2
         public char PlayerSymbol;
         public int Vertical;
         public int Horizontal;
-        public void AssignmentCoordinate(int FieldSize)
+        public void InputCoordinate(int FieldSize)
         {
             do
             {

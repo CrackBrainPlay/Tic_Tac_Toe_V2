@@ -10,7 +10,7 @@ namespace Tic_Tac_Toe_V2
     {
         public int FieldSize;
         public char[,] ValuesInPlayingField;
-        public int NewPlayingField()
+        public int InputSize()
         {
             do
             {
