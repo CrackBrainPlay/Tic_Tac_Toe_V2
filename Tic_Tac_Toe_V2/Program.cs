@@ -8,7 +8,6 @@
             var CreateField = new CreatNewPlayingField();
             var Player1 = new Player();
             var Player2 = new Player();
-            //var IsWinCheck = new WinCheck();
             Player1.PlayerSymbol = 'X';
             Player2.PlayerSymbol = 'O';
             Field.FieldSize = CreateField.InputSize();
@@ -16,6 +15,7 @@
             PrintField.Print(Field.PlayingField);
             do
             {
+                Console.WriteLine($"\nХодит {Player1.PlayerSymbol}");
                 do
                 {
                     Player1.InputCoordinate(Field.FieldSize);
@@ -25,13 +25,13 @@
                 Console.Clear();
                 PrintField.Print(Field.PlayingField);
                 Console.WriteLine();
-                //if (IsWinCheck.IsWinCheck(Field.PlayingField, Player1.PlayerSymbol))
                 if (WinCheck.IsWinCheck(Field.PlayingField, Player1.PlayerSymbol))
                 {
                     Console.WriteLine("Game over!");
                     Console.WriteLine($"Победил {Player1.PlayerSymbol} игрок!!!!");
                     break;
                 }
+                Console.WriteLine($"\nХодит {Player2.PlayerSymbol}");
                 do
                 {
                     Player2.InputCoordinate(Field.FieldSize);
@@ -41,15 +41,12 @@
                 Console.Clear();
                 PrintField.Print(Field.PlayingField);
                 Console.WriteLine();
-                //if (IsWinCheck.IsWinCheck(Field.PlayingField, Player2.PlayerSymbol))
                 if (WinCheck.IsWinCheck(Field.PlayingField, Player2.PlayerSymbol))
                 {
                     Console.WriteLine("Game over!");
                     Console.WriteLine($"Победил {Player2.PlayerSymbol} игрок!!!!");
                     break;
                 }
-
-                //} while (IsWinCheck.IsWinCheck(Field.PlayingField, Player1.PlayerSymbol) == false || IsWinCheck.IsWinCheck(Field.PlayingField, Player2.PlayerSymbol) == false);
             } while (WinCheck.IsWinCheck(Field.PlayingField, Player1.PlayerSymbol) == false || WinCheck.IsWinCheck(Field.PlayingField, Player2.PlayerSymbol) == false);
             Console.ReadLine();
         }
