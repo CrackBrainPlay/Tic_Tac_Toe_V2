@@ -18,7 +18,6 @@ namespace Tic_Tac_Toe_V2
             {
                 return false;
             }
-
         }
     }
 }

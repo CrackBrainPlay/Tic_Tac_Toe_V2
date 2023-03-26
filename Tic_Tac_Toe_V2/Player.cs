@@ -11,29 +11,23 @@ namespace Tic_Tac_Toe_V2
         public char PlayerSymbol;
         public int Vertical;
         public int Horizontal;
-
-        public int AssignmentVerticalCoordinate(int FieldSize)
+        public int VerticalCoordinate;
+        public int HorizontalСoordinate;
+        public void AssignmentCoordinate(int FieldSize)
         {
-            int VerticalCoordinate;
             do
             {
                 Console.Write("\nВведите координату по вертикали: ");
-                int.TryParse(Console.ReadLine(), out VerticalCoordinate);
-            } while (VerticalCoordinate == 0 || VerticalCoordinate > FieldSize);
+                int.TryParse(Console.ReadLine(), out Vertical);
+            } while (Vertical == 0 || Vertical > FieldSize);
             Console.WriteLine();
-            Vertical = VerticalCoordinate;
-            return VerticalCoordinate;
-        }
-        public int AssignmentHorizontalСoordinate(int FieldSize)
-        {
-            int HorizontalСoordinate;
+            //Vertical = VerticalCoordinate;
             do
             {
                 Console.Write("Введите координату по горизонтали: ");
-                int.TryParse(Console.ReadLine(), out HorizontalСoordinate);
-            } while (HorizontalСoordinate == 0 || HorizontalСoordinate > FieldSize);
-            Horizontal = HorizontalСoordinate;
-            return HorizontalСoordinate;
+                int.TryParse(Console.ReadLine(), out Horizontal);
+            } while (Horizontal == 0 || Horizontal > FieldSize);
+           // Horizontal = HorizontalСoordinate;
         }
     }
 }

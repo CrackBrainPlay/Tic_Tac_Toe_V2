@@ -21,8 +21,7 @@
             {
                 do
                 {
-                    Player1.Vertical = Player1.AssignmentVerticalCoordinate(NewField.FieldSize);
-                    Player1.Horizontal = Player1.AssignmentHorizontalСoordinate(NewField.FieldSize);     
+                    Player1.AssignmentCoordinate(NewField.FieldSize);
                 }
                 while (CheckFree.IsCheckCellFree(NewField.ValuesInPlayingField, Player1.Vertical, Player1.Horizontal) == false);
                 NewField.ValuesInPlayingField = NewMovePlayer.Move(Player1.Vertical, Player1.Horizontal, NewField.ValuesInPlayingField, Player1.PlayerSymbol);
@@ -37,8 +36,7 @@
                 }
                 do
                 {
-                    Player2.Vertical = Player2.AssignmentVerticalCoordinate(NewField.FieldSize);
-                    Player2.Horizontal = Player2.AssignmentHorizontalСoordinate(NewField.FieldSize);
+                    Player2.AssignmentCoordinate(NewField.FieldSize);
                 }
                 while (CheckFree.IsCheckCellFree(NewField.ValuesInPlayingField, Player2.Vertical, Player2.Horizontal) == false);
                 NewField.ValuesInPlayingField = NewMovePlayer.Move(Player2.Vertical, Player2.Horizontal, NewField.ValuesInPlayingField, Player2.PlayerSymbol);
