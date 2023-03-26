@@ -4,49 +4,48 @@
     {
         static void Main(string[] args)
         {
-            var Field = new Field();
-            var CreateField = new CreatNewPlayingField();
+            var NewField = new Field();
             var Player1 = new Player();
             var Player2 = new Player();
-            Player1.PlayerSymbol = 'X';
-            Player2.PlayerSymbol = 'O';
-            Field.FieldSize = CreateField.InputSize();
-            Field.PlayingField = CreateField.CreatField(Field.FieldSize);
-            PrintField.Print(Field.PlayingField);
+            Player1.NamePlayer = 'X';
+            Player2.NamePlayer = 'O';
+            NewField.PlayingField = CreatNewPlayingField.Creat();
+            NewField.FieldSize = NewField.PlayingField.GetLength(0);
+            PrintField.Print(NewField.PlayingField);
             do
             {
                 
-                Message.PrintMove(Player1.PlayerSymbol);
+                Message.PrintMove(Player1.NamePlayer);
                 do
                 {
-                    Player1.InputCoordinate(Field.FieldSize);
+                    Player1.InputCoordinate(NewField.FieldSize);
                 }
-                while (CheckIsCellFree.IsCheckCellFree(Field.PlayingField, Player1.Vertical, Player1.Horizontal) == false);
-                Field.PlayingField = MovePlayer.Move(Player1.Vertical, Player1.Horizontal, Field.PlayingField, Player1.PlayerSymbol);
+                while (Game.IsCheckCellFree(NewField.PlayingField, Player1.Vertical, Player1.Horizontal) == false);
+                NewField.PlayingField = Game.SetCellValue(Player1.Vertical, Player1.Horizontal, NewField.PlayingField, Player1.NamePlayer);
                 Console.Clear();
-                PrintField.Print(Field.PlayingField);
+                PrintField.Print(NewField.PlayingField);
                 Console.WriteLine();
-                if (WinCheck.IsWinCheck(Field.PlayingField, Player1.PlayerSymbol))
+                if (WinCheck.IsWinCheck(NewField.PlayingField, Player1.NamePlayer))
                 {
-                    Message.PrintWin(Player1.PlayerSymbol);
+                    Message.PrintWin(Player1.NamePlayer);
                     break;
                 }
-                Message.PrintMove(Player2.PlayerSymbol);
+                Message.PrintMove(Player2.NamePlayer);
                 do
                 {
-                    Player2.InputCoordinate(Field.FieldSize);
+                    Player2.InputCoordinate(NewField.FieldSize);
                 }
-                while (CheckIsCellFree.IsCheckCellFree(Field.PlayingField, Player2.Vertical, Player2.Horizontal) == false);
-                Field.PlayingField = MovePlayer.Move(Player2.Vertical, Player2.Horizontal, Field.PlayingField, Player2.PlayerSymbol);
+                while (Game.IsCheckCellFree(NewField.PlayingField, Player2.Vertical, Player2.Horizontal) == false);
+                NewField.PlayingField = Game.SetCellValue(Player2.Vertical, Player2.Horizontal, NewField.PlayingField, Player2.NamePlayer);
                 Console.Clear();
-                PrintField.Print(Field.PlayingField);
+                PrintField.Print(NewField.PlayingField);
                 Console.WriteLine();
-                if (WinCheck.IsWinCheck(Field.PlayingField, Player2.PlayerSymbol))
+                if (WinCheck.IsWinCheck(NewField.PlayingField, Player2.NamePlayer))
                 {
-                    Message.PrintWin(Player2.PlayerSymbol);
+                    Message.PrintWin(Player2.NamePlayer);
                     break;
                 }
-            } while (WinCheck.IsWinCheck(Field.PlayingField, Player1.PlayerSymbol) == false || WinCheck.IsWinCheck(Field.PlayingField, Player2.PlayerSymbol) == false);
+            } while (WinCheck.IsWinCheck(NewField.PlayingField, Player1.NamePlayer) == false || WinCheck.IsWinCheck(NewField.PlayingField, Player2.NamePlayer) == false);
             Console.ReadLine();
         }
     }

@@ -8,9 +8,9 @@ namespace Tic_Tac_Toe_V2
 {
     internal class CreatNewPlayingField
     {
-        public int FieldSize;
-        public char[,] ValuesInPlayingField;
-        public int InputSize()
+        private static int FieldSize;
+        private static char[,] ValuesInPlayingField;
+        private static int InputSize()
         {
             do
             {
@@ -22,8 +22,9 @@ namespace Tic_Tac_Toe_V2
             Console.Clear();
             return FieldSize;
         }
-        public char[,] CreatField(int FieldSize)
+        public static char[,] Creat()
         {
+            InputSize();
             ValuesInPlayingField = new char[FieldSize, FieldSize];
             return ValuesInPlayingField;
         }
