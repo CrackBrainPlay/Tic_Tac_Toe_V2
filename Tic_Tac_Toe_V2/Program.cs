@@ -27,8 +27,7 @@
                 Console.WriteLine();
                 if (WinCheck.IsWinCheck(Field.PlayingField, Player1.PlayerSymbol))
                 {
-                    Console.WriteLine("Game over!");
-                    Console.WriteLine($"Победил {Player1.PlayerSymbol} игрок!!!!");
+                    Message.Print(Player1.PlayerSymbol);
                     break;
                 }
                 Console.WriteLine($"\nХодит {Player2.PlayerSymbol}");
@@ -43,8 +42,7 @@
                 Console.WriteLine();
                 if (WinCheck.IsWinCheck(Field.PlayingField, Player2.PlayerSymbol))
                 {
-                    Console.WriteLine("Game over!");
-                    Console.WriteLine($"Победил {Player2.PlayerSymbol} игрок!!!!");
+                    Message.Print(Player2.PlayerSymbol);
                     break;
                 }
             } while (WinCheck.IsWinCheck(Field.PlayingField, Player1.PlayerSymbol) == false || WinCheck.IsWinCheck(Field.PlayingField, Player2.PlayerSymbol) == false);
