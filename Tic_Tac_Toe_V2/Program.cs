@@ -15,7 +15,8 @@
             PrintField.Print(Field.PlayingField);
             do
             {
-                Console.WriteLine($"\nХодит {Player1}");
+                
+                Message.PrintMove(Player1.PlayerSymbol);
                 do
                 {
                     Player1.InputCoordinate(Field.FieldSize);
@@ -27,10 +28,10 @@
                 Console.WriteLine();
                 if (WinCheck.IsWinCheck(Field.PlayingField, Player1.PlayerSymbol))
                 {
-                    Message.Print(Player1.PlayerSymbol);
+                    Message.PrintWin(Player1.PlayerSymbol);
                     break;
                 }
-                Console.WriteLine($"\nХодит {Player2.PlayerSymbol}");
+                Message.PrintMove(Player2.PlayerSymbol);
                 do
                 {
                     Player2.InputCoordinate(Field.FieldSize);
@@ -42,7 +43,7 @@
                 Console.WriteLine();
                 if (WinCheck.IsWinCheck(Field.PlayingField, Player2.PlayerSymbol))
                 {
-                    Message.Print(Player2.PlayerSymbol);
+                    Message.PrintWin(Player2.PlayerSymbol);
                     break;
                 }
             } while (WinCheck.IsWinCheck(Field.PlayingField, Player1.PlayerSymbol) == false || WinCheck.IsWinCheck(Field.PlayingField, Player2.PlayerSymbol) == false);
