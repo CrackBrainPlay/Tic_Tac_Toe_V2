@@ -28,5 +28,14 @@ namespace Tic_Tac_Toe_V2
             ValuesInPlayingField = new char[FieldSize, FieldSize];
             return ValuesInPlayingField;
         }
+
+        public static int RerurnFieldSize()
+        {
+            return FieldSize;
+        }
+        public static char[,] RerurnValuesInPlayingField()
+        {
+            return ValuesInPlayingField;
+        }
     }
 }

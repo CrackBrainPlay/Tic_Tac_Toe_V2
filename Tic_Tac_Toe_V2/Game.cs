@@ -27,7 +27,7 @@ namespace Tic_Tac_Toe_V2
             ValuesInPlayingField[VerticalCoordinate - 1, HorizontalСoordinate - 1] = Symbol;
             return ValuesInPlayingField;
         }
-        public void InputCoordinate(int FieldSize)
+        /*public void InputCoordinate(int FieldSize)
         {
             do
             {
@@ -40,7 +40,7 @@ namespace Tic_Tac_Toe_V2
                 Console.Write("Введите координату по горизонтали: ");
                 int.TryParse(Console.ReadLine(), out Horizontal);
             } while (Horizontal == 0 || Horizontal > FieldSize);
-        }
+        }*/
 
     }
 }
