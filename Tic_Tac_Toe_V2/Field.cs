@@ -17,6 +17,11 @@ namespace Tic_Tac_Toe_V2
         private int FieldSize;
         private char[,] PlayingField;
 
+        public void PlayingFieldRecord(int i, int j, char Symbol)
+        {
+            PlayingField[i , j] = Symbol;
+        }
+
         public int FildSizeReturn ()
         {
             return FieldSize;

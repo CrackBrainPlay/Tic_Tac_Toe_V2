@@ -13,9 +13,14 @@ namespace Tic_Tac_Toe_V2
     }
     internal class Player
     {
-        public char NamePlayer;
-        public int Vertical;
-        public int Horizontal;
+        public Player(char NamePlayer)
+        {
+            this.NamePlayer = NamePlayer;
+
+        }
+        private char NamePlayer;
+        private int Vertical;
+        private int Horizontal;
         public void InputCoordinate(int FieldSize)
         {
             do
@@ -30,5 +35,18 @@ namespace Tic_Tac_Toe_V2
                 int.TryParse(Console.ReadLine(), out Horizontal);
             } while (Horizontal == 0 || Horizontal > FieldSize);
         }
+        public char NamePlayerReturn()
+        {
+            return NamePlayer;
+        }
+        public int HorizontalReturn()
+        {
+            return Horizontal;
+        }
+        public int VerticalReturn()
+        {
+            return Vertical;
+        }
+
     }
 }
