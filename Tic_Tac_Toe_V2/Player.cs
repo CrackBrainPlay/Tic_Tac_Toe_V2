@@ -18,35 +18,49 @@ namespace Tic_Tac_Toe_V2
             this.NamePlayer = NamePlayer;
 
         }
-        private char NamePlayer;
-        private int Vertical;
-        private int Horizontal;
+        public char NamePlayer { get; }
+        private int _Horizontal;
+
+        public int Horizontal
+        {
+            get { return _Horizontal; }
+            set { _Horizontal = value; }
+        }
+
+        private int _Vertical;
+
+        public int Vertical
+        {
+            get { return _Vertical; }
+            set { _Vertical = value; }
+        }
+
         public void InputCoordinate(int FieldSize)
         {
             do
             {
                 Console.Write("\nВведите координату по вертикали: ");
-                int.TryParse(Console.ReadLine(), out Vertical);
-            } while (Vertical == 0 || Vertical > FieldSize);
+                int.TryParse(Console.ReadLine(), out _Vertical);
+            } while (_Vertical == 0 || _Vertical > FieldSize);
             Console.WriteLine();
             do
             {
                 Console.Write("Введите координату по горизонтали: ");
-                int.TryParse(Console.ReadLine(), out Horizontal);
-            } while (Horizontal == 0 || Horizontal > FieldSize);
+                int.TryParse(Console.ReadLine(), out _Horizontal);
+            } while (_Horizontal == 0 || _Horizontal > FieldSize);
         }
-        public char NamePlayerReturn()
+        /*public char NamePlayerReturn()
         {
             return NamePlayer;
-        }
-        public int HorizontalReturn()
+        }*/
+        /*public int HorizontalReturn()
         {
             return Horizontal;
         }
         public int VerticalReturn()
         {
             return Vertical;
-        }
+        }*/
 
     }
 }

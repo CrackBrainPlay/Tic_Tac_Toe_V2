@@ -8,9 +8,44 @@ namespace Tic_Tac_Toe_V2
 {
     internal class CreatNewPlayingField
     {
+        /*
+        private int FieldSize;
+
+        public int FIELDSIZE
+        {
+            get 
+            {
+                do
+                {
+                    Console.Clear();
+                    Console.WriteLine("Условия размера поля, оно не должно быть меньше 3 и боле 20");
+                    Console.Write("\nВведите размер поля, для игры: ");
+                    int.TryParse(Console.ReadLine(), out FieldSize);
+                } while (FieldSize == 0 || FieldSize <= 2 || FieldSize >= 21);
+                Console.Clear();
+                return FieldSize;
+            }
+            set { FieldSize = value; }
+        }
+        
+        private char[,] ValuesInPlayingField;
+
+        public char[,] VALUESINPLAYUNDFIELD
+        {
+            private get 
+            {
+                ValuesInPlayingField = new char[FieldSize, FieldSize];
+                return ValuesInPlayingField;
+            }
+            set { ValuesInPlayingField = value; }
+        }*/
+
         private static int FieldSize;
-        private static char[,] ValuesInPlayingField;
-        private static int InputSize()
+        public static int GetFieldSize()
+        {
+            return FieldSize;
+        }
+        private static int SetFieldSize()
         {
             do
             {
@@ -22,19 +57,17 @@ namespace Tic_Tac_Toe_V2
             Console.Clear();
             return FieldSize;
         }
-        public static char[,] Creat()
+
+        private static char[,] ValuesInPlayingField;
+
+        public static char[,] GetValuesInPlayingField()
         {
-            InputSize();
-            ValuesInPlayingField = new char[FieldSize, FieldSize];
             return ValuesInPlayingField;
         }
-
-        public static int RerurnFieldSize()
+        public static char[,] SetValuesInPlayingField()
         {
-            return FieldSize;
-        }
-        public static char[,] RerurnValuesInPlayingField()
-        {
+            SetFieldSize();
+            ValuesInPlayingField = new char[FieldSize, FieldSize];
             return ValuesInPlayingField;
         }
     }
