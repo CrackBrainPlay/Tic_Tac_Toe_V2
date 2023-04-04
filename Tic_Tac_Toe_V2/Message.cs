@@ -6,14 +6,16 @@ using System.Threading.Tasks;
 
 namespace Tic_Tac_Toe_V2
 {
-    internal class Message
+    static class Message
     {
-        public static void PrintWin(char Symbol)
+        private const string GAME_OVER = "Game over!";
+        private const string PLAYER_IS_WIN = "Победил игрок!!!";
+        public static void PrintWin(PlayerSymbol Symbol)
         {
-            Console.WriteLine("Game over!");
-            Console.WriteLine($"\nПобедил {Symbol} игрок!!!!");
+            Console.WriteLine(GAME_OVER);
+            Console.WriteLine($"{PLAYER_IS_WIN} {Symbol}");
         }
-        public static void PrintMove(char Symbol)
+        public static void PrintMove(PlayerSymbol Symbol)
         {
             Console.WriteLine($"\nХодит {Symbol}");
         }

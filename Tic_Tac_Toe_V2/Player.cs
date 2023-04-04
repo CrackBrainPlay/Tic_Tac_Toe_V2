@@ -6,36 +6,34 @@ using System.Threading.Tasks;
 
 namespace Tic_Tac_Toe_V2
 {
-    enum SymbolPlayer
+    public class Player
     {
-        X,
-        O
-    }
-    internal class Player
-    {
-        public Player(char NamePlayer)
+        public Player(PlayerSymbol Symbol )
         {
-            this.NamePlayer = NamePlayer;
-
+            _Symbol = Symbol;
         }
-        public char NamePlayer { get; }
+
+        private PlayerSymbol _Symbol;
+
+        public PlayerSymbol Symbol
+        {
+            get { return _Symbol; }
+        }
         private int _Horizontal;
-
-        public int Horizontal
-        {
-            get { return _Horizontal; }
-            set { _Horizontal = value; }
-        }
-
         private int _Vertical;
 
-        public int Vertical
+        public void Move(Field Field1) 
         {
-            get { return _Vertical; }
-            set { _Vertical = value; }
+            Message.PrintMove(_Symbol);
+            do
+            {
+                InputCoordinate(Field1.FieldSize);
+            } 
+            while (Field1.IsCheckCellFree( _Vertical, _Horizontal) == false);
+            Field1.SetCellValue(_Vertical, _Horizontal, _Symbol);
         }
 
-        public void InputCoordinate(int FieldSize)
+        private void InputCoordinate(int FieldSize)
         {
             do
             {
@@ -49,18 +47,5 @@ namespace Tic_Tac_Toe_V2
                 int.TryParse(Console.ReadLine(), out _Horizontal);
             } while (_Horizontal == 0 || _Horizontal > FieldSize);
         }
-        /*public char NamePlayerReturn()
-        {
-            return NamePlayer;
-        }*/
-        /*public int HorizontalReturn()
-        {
-            return Horizontal;
-        }
-        public int VerticalReturn()
-        {
-            return Vertical;
-        }*/
-
     }
 }

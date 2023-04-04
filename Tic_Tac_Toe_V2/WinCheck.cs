@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace Tic_Tac_Toe_V2
 {
-    internal class WinCheck
+    static class WinCheck
     {
         private static int CounterVictory;
-        public static bool IsWinCheck(char[,] ValuesInPlayingField, char PlayerSymbol)
+        public static bool IsWinCheck(PlayerSymbol[,] ValuesInPlayingField, PlayerSymbol Symbol)
         {
             for (int i = 0; i < ValuesInPlayingField.GetLength(0); i++)
                 {
                     CounterVictory = 0;
                     for (int j = 0; j < ValuesInPlayingField.GetLength(1); j++)
                     {
-                        if (ValuesInPlayingField[i, j] == PlayerSymbol)
+                        if (ValuesInPlayingField[i, j] == Symbol)
                         {
                             CounterVictory++;
                         }
@@ -31,7 +31,7 @@ namespace Tic_Tac_Toe_V2
                     CounterVictory = 0;
                     for (int j = 0; j < ValuesInPlayingField.GetLength(1); j++)
                     {
-                        if (ValuesInPlayingField[j, i] == PlayerSymbol)
+                        if (ValuesInPlayingField[j, i] == Symbol)
                         {
                             CounterVictory++;
                         }
@@ -44,7 +44,7 @@ namespace Tic_Tac_Toe_V2
                 CounterVictory = 0;
                 for (int i = 0; i < ValuesInPlayingField.GetLength(0); i++)
                 {
-                    if (ValuesInPlayingField[i, i] == PlayerSymbol)
+                    if (ValuesInPlayingField[i, i] == Symbol)
                     {
                         CounterVictory++;
                     }
@@ -56,7 +56,7 @@ namespace Tic_Tac_Toe_V2
                 CounterVictory = 0;
                 for (int i = ValuesInPlayingField.GetLength(0) - 1; i >= 0; i--)
                 {
-                    if (ValuesInPlayingField[i, i] == PlayerSymbol)
+                    if (ValuesInPlayingField[i, i] == Symbol)
                     {
                         CounterVictory++;
                     }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Tic_Tac_Toe_V2
 {
-    public class PrintField
+    public static class PrintField
     {
-        public static void Print(char[,] ValuesInPlayingField)
+        public static void Print(PlayerSymbol[,] ValuesInPlayingField)
         {
             Console.Clear();
             Console.Write("  ");
@@ -22,7 +22,7 @@ namespace Tic_Tac_Toe_V2
                 Console.Write($"{i + 1} ");
                 for (int j = 0; j < ValuesInPlayingField.GetLength(0); j++)
                 {
-                    if (ValuesInPlayingField[i, j] == '\0')
+                    if (ValuesInPlayingField[i, j] == 0)
                     {
                         Console.Write("[ ]");
                     }
