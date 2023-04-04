@@ -13,7 +13,7 @@ namespace Tic_Tac_Toe_V2
             _Symbol = Symbol;
         }
 
-        private PlayerSymbol _Symbol;
+        private readonly PlayerSymbol _Symbol;
 
         public PlayerSymbol Symbol
         {
@@ -28,8 +28,8 @@ namespace Tic_Tac_Toe_V2
             do
             {
                 InputCoordinate(Field1.FieldSize);
-            } 
-            while (Field1.IsCheckCellFree( _Vertical, _Horizontal) == false);
+            }
+            while (Field1.IsCheckCellFree(_Vertical, _Horizontal) == false);
             Field1.SetCellValue(_Vertical, _Horizontal, _Symbol);
         }
 
@@ -38,13 +38,13 @@ namespace Tic_Tac_Toe_V2
             do
             {
                 Console.Write("\nВведите координату по вертикали: ");
-                int.TryParse(Console.ReadLine(), out _Vertical);
+                _ = int.TryParse(Console.ReadLine(), out _Vertical);
             } while (_Vertical == 0 || _Vertical > FieldSize);
             Console.WriteLine();
             do
             {
                 Console.Write("Введите координату по горизонтали: ");
-                int.TryParse(Console.ReadLine(), out _Horizontal);
+                _ = int.TryParse(Console.ReadLine(), out _Horizontal);
             } while (_Horizontal == 0 || _Horizontal > FieldSize);
         }
     }
