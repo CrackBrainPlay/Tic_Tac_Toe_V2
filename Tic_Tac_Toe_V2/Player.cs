@@ -10,42 +10,42 @@ namespace Tic_Tac_Toe_V2
     {
         public Player(PlayerSymbol Symbol )
         {
-            _Symbol = Symbol;
+            m_Symbol = Symbol;
         }
 
-        private readonly PlayerSymbol _Symbol;
+        private readonly PlayerSymbol m_Symbol;
 
         public PlayerSymbol Symbol
         {
-            get { return _Symbol; }
+            get { return m_Symbol; }
         }
-        private int _Horizontal;
-        private int _Vertical;
+        private int m_Horizontal;
+        private int m_Vertical;
 
-        public void Move(Field Field1) 
+        public void Move(BoardLayout Board) 
         {
-            Message.PrintMove(_Symbol);
+            Message.OutputStepMessage(m_Symbol);
             do
             {
-                InputCoordinate(Field1.FieldSize);
+                InputCoordinate(Board.BoardWidth);
             }
-            while (Field1.IsCheckCellFree(_Vertical, _Horizontal) == false);
-            Field1.SetCellValue(_Vertical, _Horizontal, _Symbol);
+            while (Board.IsCellFree(m_Vertical, m_Horizontal) == false);
+            Board.SetCellValue(m_Vertical, m_Horizontal, m_Symbol);
         }
 
-        private void InputCoordinate(int FieldSize)
+        private void InputCoordinate(int BoardWidth)
         {
             do
             {
                 Console.Write("\nВведите координату по вертикали: ");
-                _ = int.TryParse(Console.ReadLine(), out _Vertical);
-            } while (_Vertical == 0 || _Vertical > FieldSize);
+                _ = int.TryParse(Console.ReadLine(), out m_Vertical);
+            } while (m_Vertical == 0 || m_Vertical > BoardWidth);
             Console.WriteLine();
             do
             {
                 Console.Write("Введите координату по горизонтали: ");
-                _ = int.TryParse(Console.ReadLine(), out _Horizontal);
-            } while (_Horizontal == 0 || _Horizontal > FieldSize);
+                _ = int.TryParse(Console.ReadLine(), out m_Horizontal);
+            } while (m_Horizontal == 0 || m_Horizontal > BoardWidth);
         }
     }
 }

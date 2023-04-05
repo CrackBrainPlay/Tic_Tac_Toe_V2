@@ -6,27 +6,15 @@
         {
             var Player1 = new Player(PlayerSymbol.X);
             var Player2 = new Player(PlayerSymbol.O);
-            var NewField = new Field(CreatField.SetValuesInPlayingField(), CreatField.GetFieldSize());
-            PrintField.Print(NewField);
-            do
+            var Board = BoardCreator.Create();
+            Renderer.RenderBoard(Board);
+            while (true)
             {
-                Player1.Move(NewField);
-                PrintField.Print(NewField);
-                Console.WriteLine();
-                if (WinCheck.IsWinCheck(NewField.PlayingField, Player1.Symbol))
-                {
-                    Message.PrintWin(Player1.Symbol);
+                if (Game.MakeStep(Board, Player1))
                     break;
-                }
-                Player2.Move(NewField);
-                PrintField.Print(NewField);
-                Console.WriteLine();
-                if (WinCheck.IsWinCheck(NewField.PlayingField, Player2.Symbol))
-                {
-                    Message.PrintWin(Player2.Symbol);
+                if (Game.MakeStep(Board, Player2))
                     break;
-                }
-            } while (WinCheck.IsWinCheck(NewField.PlayingField, Player1.Symbol) == false || WinCheck.IsWinCheck(NewField.PlayingField, Player2.Symbol) == false);
+            }
             Console.ReadLine();
         }
     }
