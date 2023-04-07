@@ -8,7 +8,7 @@
             var Player2 = new Player(PlayerSymbol.O);
             var Board = BoardCreator.Create();
             Renderer.RenderBoard(Board);
-            while (Game.MakeStep(Board, Player1) == false || Game.MakeStep(Board, Player2) == false)
+            while (true)
             {
                 if (Game.MakeStep(Board, Player1))
                     break;
