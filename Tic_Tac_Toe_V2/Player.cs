@@ -19,8 +19,6 @@ namespace Tic_Tac_Toe_V2
         {
             get { return m_Symbol; }
         }
-        //private int m_Horizontal;
-        //private int m_Vertical;
 
         private int m_Horizontal;
 
