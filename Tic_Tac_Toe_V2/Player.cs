@@ -19,18 +19,20 @@ namespace Tic_Tac_Toe_V2
         {
             get { return m_Symbol; }
         }
+        //private int m_Horizontal;
+        //private int m_Vertical;
+
         private int m_Horizontal;
+
+        public int Horizontal
+        {
+            get { return m_Horizontal; }
+        }
         private int m_Vertical;
 
-        public void Move(BoardLayout Board) 
+        public int Vertical
         {
-            Message.OutputStepMessage(m_Symbol);
-            do
-            {
-                InputCoordinate(Board.BoardWidth);
-            }
-            while (Board.IsCellFree(m_Vertical, m_Horizontal) == false);
-            Board.SetCellValue(m_Vertical, m_Horizontal, m_Symbol);
+            get { return m_Vertical; }
         }
 
         private void InputCoordinate(int BoardWidth)
@@ -46,6 +48,16 @@ namespace Tic_Tac_Toe_V2
                 Console.Write("Введите координату по горизонтали: ");
                 _ = int.TryParse(Console.ReadLine(), out m_Horizontal);
             } while (m_Horizontal == 0 || m_Horizontal > BoardWidth);
+        }
+        public void Move(BoardLayout Board)
+        {
+            Message.OutputStepMessage(m_Symbol);
+            do
+            {
+                InputCoordinate(Board.BoardWidth);
+            }
+            while (Board.IsCellFree(m_Vertical, m_Horizontal) == false);
+            Board.SetCellValue(m_Vertical, m_Horizontal, m_Symbol);
         }
     }
 }

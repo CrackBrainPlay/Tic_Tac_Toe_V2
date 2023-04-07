@@ -8,65 +8,55 @@ namespace Tic_Tac_Toe_V2
 {
     internal class WinCheck2
     {
-
-        private static int CounterVictory;
-        public static bool IsWinCheck(BoardLayout NewField, Player NewPlayer)
+        private static bool IsWinCheckRevers(BoardLayout Board, int Vertical, int Horizontal, int diff1, int diff2)
         {
-            for (int i = 0; i < NewField.Board.GetLength(0); i++)
+            Vertical--;
+            Horizontal--;
+            int victoryCounter = 0;
+            int quantity = 3;
+            int boardLenght = Board.Board.GetLength(0);
+            PlayerSymbol symbol = Board.Board[Vertical, Horizontal];
+            bool leftWalk = false;
+            bool rightWalk = false;
+            for (int j = 0; j < quantity; j++)
             {
-                CounterVictory = 0;
-                for (int j = 0; j < NewField.Board.GetLength(1); j++)
+                int leftVertical = Vertical  - j * diff1;
+                int leftHorizontal = Horizontal  - j * diff2;
+                int rightVertical = Vertical  + j * diff1;
+                int rightHorizontal = Horizontal  + j * diff2;
+                if (leftVertical > -1 && leftVertical < boardLenght && leftHorizontal > -1 && leftHorizontal < boardLenght && leftWalk == false)
                 {
-                    if (NewField.Board[i, j] == NewPlayer.Symbol)
+                    if (Board.Board[leftVertical, leftHorizontal] == 0)
                     {
-                        CounterVictory++;
+                        leftWalk = true;
                     }
-                    if (CounterVictory == NewField.Board.GetLength(0))
+                    else if (Board.Board[leftVertical, leftHorizontal] == symbol)
                     {
-                        return true;
-                    }
-                }
-            }
-            for (int i = 0; i < NewField.Board.GetLength(0); i++)
-            {
-                CounterVictory = 0;
-                for (int j = 0; j < NewField.Board.GetLength(1); j++)
-                {
-                    if (NewField.Board[j, i] == NewPlayer.Symbol)
-                    {
-                        CounterVictory++;
-                    }
-                    if (CounterVictory == NewField.Board.GetLength(0))
-                    {
-                        return true;
+                        victoryCounter++;
                     }
                 }
-            }
-            CounterVictory = 0;
-            for (int i = 0; i < NewField.Board.GetLength(0); i++)
-            {
-                if (NewField.Board[i, i] == NewPlayer.Symbol)
+                if (rightVertical > -1 && rightVertical < boardLenght && rightHorizontal > -1 && rightHorizontal < boardLenght && rightWalk == false)
                 {
-                    CounterVictory++;
+                    if (Board.Board[rightVertical, rightHorizontal] == 0)
+                    {
+                        rightWalk = true;
+                    }
+                    else if (Board.Board[rightVertical, rightHorizontal] == symbol)
+                    {
+                        victoryCounter++;
+                    }
                 }
-                if (CounterVictory == NewField.Board.GetLength(0))
-                {
-                    return true;
-                }
-            }
-            CounterVictory = 0;
-            for (int i = NewField.Board.GetLength(0) - 1; i >= 0; i--)
-            {
-                if (NewField.Board[i, i] == NewPlayer.Symbol)
-                {
-                    CounterVictory++;
-                }
-                if (CounterVictory == NewField.Board.GetLength(0))
+                if (victoryCounter > quantity)
                 {
                     return true;
                 }
             }
             return false;
+        }
+
+        public static bool IsWinCheck(BoardLayout Board, Player Player)
+        {
+            return IsWinCheckRevers(Board, Player.Vertical, Player.Horizontal, -1, 1) || IsWinCheckRevers(Board, Player.Vertical, Player.Horizontal, 0, 1) || IsWinCheckRevers(Board, Player.Vertical, Player.Horizontal, 1, 1) || IsWinCheckRevers(Board, Player.Vertical, Player.Horizontal, 1, 0);
         }
     }
 }

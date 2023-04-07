@@ -20,7 +20,7 @@ namespace Tic_Tac_Toe_V2
 
         public bool IsCellFree( int Vertical, int Horizontal)
         {
-            return (Board[Vertical - 1, Horizontal - 1] == 0);
+            return (Board[Vertical - 1 , Horizontal - 1] == 0);
         }
         public void SetCellValue( int Vertical, int Horizontal, PlayerSymbol Symbol)
         {

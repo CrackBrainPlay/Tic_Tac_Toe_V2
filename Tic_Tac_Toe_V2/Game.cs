@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Tic_Tac_Toe_V2
 {
-    static class Game
+    class Game
     {
         public static bool MakeStep(BoardLayout Board, Player Player)
         {
             Player.Move(Board);
             Renderer.RenderBoard(Board);
-            if (WinChecker.IsWin(Board, Player))
+            if (WinCheck2.IsWinCheck(Board, Player))
             {
                 Message.OutputWinMessage(Player.Symbol);
                 return true;
