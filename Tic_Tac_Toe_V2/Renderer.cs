@@ -14,7 +14,7 @@ namespace Tic_Tac_Toe_V2
             Console.Write("  ");
             for (int j = 0; j < Board.Board.GetLength(0); j++)
             {
-                    Console.Write($" {j + 1} ");
+                Console.Write($" {j + 1} ");
             }
             Console.WriteLine();
             for (int i = 0; i < Board.Board.GetLength(0); i++)

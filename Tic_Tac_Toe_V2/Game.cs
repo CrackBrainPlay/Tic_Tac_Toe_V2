@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tic_Tac_Toe_V2
 {
-    class Game
+    sealed class Game
     {
         public static bool MakeStep(BoardLayout Board, Player Player)
         {

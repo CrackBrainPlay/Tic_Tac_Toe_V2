@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tic_Tac_Toe_V2
 {
-    public class BoardLayout
+    sealed public class BoardLayout
     {
         public BoardLayout(PlayerSymbol[,] Board) 
         {

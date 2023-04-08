@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tic_Tac_Toe_V2
 {
-    internal class WinCheck2
+    public static class WinCheck2
     {
         private static bool IsWinCheckRevers(BoardLayout Board, int Vertical, int Horizontal, int diff1, int diff2)
         {
